@@ -3,12 +3,12 @@
 # x12 - Corrente Eletrica (I)
 
 #Atribuir as variáveis para teste aqui no label teste
-teste:
-    addi x10, x0, 0
-    addi x11, x0, 2
-    addi x12, x0, 3
-    jal Ohm
-    jal x0, Fim
+main:
+addi x10, x0, 0
+addi x11, x0, 20
+addi x12, x0, 2
+jal x1, Ohm
+jal x0, Fim
 
 Ohm:
 beq x10, x0, CalculaTensao
@@ -28,7 +28,7 @@ div x11, x10, x12
 addi x10, x11, 0
 jalr x0, 0(x1)
 
-CalculaCorrente: # Calcular I = R / V
+CalculaCorrente: # Calcular I = V / R
 beq x10, x0, RetornaZero
 beq x11, x0, RetornaZero
 div x12, x10, x11
@@ -37,5 +37,6 @@ jalr x0, 0(x1)
 
 RetornaZero:
 addi x10, x0, 0
+jalr x0, 0(x1)
 
 Fim:

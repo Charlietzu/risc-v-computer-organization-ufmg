@@ -11,6 +11,7 @@ arr: .word 27 16 20 49 39 48 38 7 5 19
 Main:
     addi x11, x0, 10    # Tamanho do array (n) = 10 
     la x10, arr         # Lendo endereço do arr
+    addi x7, x0, 1      # Definindo variável auxiliar pra receber valor 1
     jal InsertionSort
 
 InsertionSort:
@@ -18,11 +19,12 @@ InsertionSort:
     jal Loop1
 
 Loop1:
+    addi x28, x28, 1    # i++
     slli x30, x28, 2    # endereço de arr[i]
     add x31, x10, x30   # posição da memória onde quero chegar
     lw x5, 0(x31)       # x5 = arr[i]
     addi x12, x5, 0     # key = arr[i]
-    sub x29, x28, 1     # j = i − 1
+    sub x29, x28, x7    # j = i − 1
     bgt x11, x28, Loop2 # n > i
     jal Fim
 
@@ -33,7 +35,7 @@ Loop2:
     bge x12, x5, CondicaoSaidaLoop2
     blt x29, x0, CondicaoSaidaLoop2
     sw x5, 4(x31)       # arr[j + 1] = arr[j]
-    sub x29, x29, 1     # j = j - 1
+    sub x29, x29, x7    # j = j - 1
     jal Loop2
 
 CondicaoSaidaLoop2:

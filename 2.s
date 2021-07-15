@@ -1,7 +1,7 @@
 # x10 - n
 # x11 - d
 # Variavel de retorno = x10
-primo:
+Primo:
     addi x29, x0, 1
     addi x10, x0, 2 #Atribuir valor da varíavel n aqui
     bge x29, x10, RetornaFalso

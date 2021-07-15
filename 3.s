@@ -25,15 +25,15 @@ Loop1:
     lw x5, 0(x31)       # x5 = arr[i]
     addi x12, x5, 0     # key = arr[i]
     sub x29, x28, x7    # j = i − 1
-    bgt x11, x28, Loop2 # n > i
+    bgt x11, x28, Loop2 # se (n > i)
     jal Fim
 
 Loop2:
     slli x30, x29, 2    # endereco de arr[j]
     add x31, x10, x30   # posição da memória onde quero chegar
 	lw x5, 0(x31)       # x5 = arr[j]
-    bge x12, x5, CondicaoSaidaLoop2
-    blt x29, x0, CondicaoSaidaLoop2
+    bge x12, x5, CondicaoSaidaLoop2 # se (arr[j] <= key) 
+    blt x29, x0, CondicaoSaidaLoop2 # se (j < 0)
     sw x5, 4(x31)       # arr[j + 1] = arr[j]
     sub x29, x29, x7    # j = j - 1
     jal Loop2

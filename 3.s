@@ -9,12 +9,12 @@ arr: .word 27 16 20 49 39 48 38 7 5 19
     # x29 = j
 .text
 Main:
-    addi x11, x0, 10 # Tamanho do array (n) = 10 
-    la x10, arr # Lendo endereço do arr
+    addi x11, x0, 10    # Tamanho do array (n) = 10 
+    la x10, arr         # Lendo endereço do arr
     jal InsertionSort
 
 InsertionSort:
-    addi x28, x0, 1 # x28 = i
+    addi x28, x0, 1     # x28 = i
     jal Loop1
 
 Loop1:

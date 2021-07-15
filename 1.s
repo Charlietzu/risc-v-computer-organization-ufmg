@@ -15,7 +15,7 @@ Ohm:
     beq x11, x0, CalculaResistencia
     beq x12, x0, CalculaCorrente
 
-CalculaTensao: # Calcular V = R * I
+CalculaTensao:      # Calcular V = R * I
     beq x11, x0, RetornaZero
     beq x12, x0, RetornaZero
     mul x10, x11, x12
@@ -28,7 +28,7 @@ CalculaResistencia: # Calcular R = V / I
     addi x10, x11, 0
     jalr x0, 0(x1)
 
-CalculaCorrente: # Calcular I = V / R
+CalculaCorrente:    # Calcular I = V / R
     beq x10, x0, RetornaZero
     beq x11, x0, RetornaZero
     div x12, x10, x11

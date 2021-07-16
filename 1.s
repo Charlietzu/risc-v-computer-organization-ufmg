@@ -4,9 +4,9 @@
 
 #Atribuir as variáveis para teste aqui no label teste
 Main:
-    addi x10, x0, 0
-    addi x11, x0, 20
-    addi x12, x0, 2
+    addi x10, x0, 0 # V
+    addi x11, x0, 10 # R
+    addi x12, x0, 5 # I
     jal x1, Ohm
     jal x0, Fim
 
